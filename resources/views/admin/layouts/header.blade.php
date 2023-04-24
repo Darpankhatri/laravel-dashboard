@@ -34,7 +34,7 @@
         </div>
         <div class="nav-right col-xxl-7 col-xl-6 col-md-7 col-8 pull-right right-header p-0 ms-auto">
             <ul class="nav-menus">
-                <li class="language-nav">
+                {{-- <li class="language-nav">
                     <div class="translate_wrapper">
                         <div class="current_lang">
                             <div class="lang"><i class="flag-icon flag-icon-us"></i><span class="lang-txt">EN </span>
@@ -57,12 +57,12 @@
                                     class="lang-txt">لعربية <span> (ae)</span></span></div>
                         </div>
                     </div>
-                </li>
+                </li> --}}
                 <li> <span class="header-search">
                         <svg>
                             <use href="{{ asset('admin/assets/svg/icon-sprite.svg#search') }}"></use>
                         </svg></span></li>
-                <li class="onhover-dropdown">
+                {{-- <li class="onhover-dropdown">
                     <svg>
                         <use href="{{ asset('admin/assets/svg/icon-sprite.svg#star') }}"></use>
                     </svg>
@@ -112,7 +112,7 @@
                             </div>
                         </div>
                     </div>
-                </li>
+                </li> --}}
                 <li>
                     <div class="mode">
                         <svg>
@@ -120,7 +120,7 @@
                         </svg>
                     </div>
                 </li>
-                <li class="cart-nav onhover-dropdown">
+                {{-- <li class="cart-nav onhover-dropdown">
                     <div class="cart-box">
                         <svg>
                             <use href="{{ asset('admin/assets/svg/icon-sprite.svg#stroke-ecommerce') }}"></use>
@@ -202,20 +202,20 @@
                             <li><a class="f-w-700" href="#">Check all</a></li>
                         </ul>
                     </div>
-                </li>
+                </li> --}}
                 <li class="profile-nav onhover-dropdown pe-0 py-0">
-                    <div class="media profile-media"><img class="b-r-10" src="{{ asset('admin/assets/images/dashboard/profile.png') }}"
+                    <div class="media profile-media"><img class="b-r-10" src="{{ asset(Auth::user()->image) }}" style="width:45px;"
                             alt="">
-                        <div class="media-body"><span>Emay Walter</span>
-                            <p class="mb-0 font-roboto">Admin <i class="middle fa fa-angle-down"></i></p>
+                        <div class="media-body"><span>{{ Auth::user()->name }}</span>
+                            <p class="mb-0 font-roboto">{{ Auth::user()->role_id == 1 ? "Admin" : "User" }}<i class="middle fa fa-angle-down"></i></p>
                         </div>
                     </div>
                     <ul class="profile-dropdown onhover-show-div">
-                        <li><a href="#"><i data-feather="user"></i><span>Account </span></a></li>
+                        <li><a href="{{ route('dashboard.profile') }}"><i data-feather="user"></i><span>Profile </span></a></li>
                         <li><a href="#"><i data-feather="mail"></i><span>Inbox</span></a></li>
                         <li><a href="#"><i data-feather="file-text"></i><span>Taskboard</span></a></li>
                         <li><a href="#"><i data-feather="settings"></i><span>Settings</span></a></li>
-                        <li><a href="#"><i data-feather="log-in"> </i><span>Log in</span></a></li>
+                        <li><a href="{{ route('user.logout') }}"><i data-feather="log-out"> </i><span>Logout</span></a></li>
                     </ul>
                 </li>
             </ul>

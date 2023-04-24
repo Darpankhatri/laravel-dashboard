@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\IndexController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +17,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin.pages.dashboard');
+    return view('welcome');
+});
+
+Route::group(['middleware' => 'isAdmin'], function()
+{
+    Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+});
+
+Route::group(['middleware' => 'auth'], function()
+{
+    Route::get('dashboard/profile', [HomeController::class, 'profile'])->name('dashboard.profile');
+    Route::get('logout', [HomeController::class, 'logout'])->name('user.logout');
 });
 
 Auth::routes();
