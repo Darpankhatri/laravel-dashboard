@@ -31,7 +31,10 @@
                             <div class="cardheader"></div>
                             <div class="user-image">
                                 <div class="avatar"><img alt="" id="imageprofile" src="{{ asset($user->image) }}"></div>
-                                <div class="icon-wrapper"><i for="imageUpload" title="Update Profile" class="icofont icofont-pencil-alt-5" onclick="imgupload();"></i></div>
+                                <div class="icon-wrapper">
+                                    <i for="imageUpload" class="icofont icofont-pencil-alt-5" onclick="imgupload();"
+                                    data-container="body" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Upload Image"></i>
+                                </div>
                                 <input type="file" name="image" id="imageUpload" style="display: none;"
                                 onchange="previewFile(this);" accept="image/*" />
                             </div>
@@ -92,7 +95,7 @@
                                     </ul>
                                 </div>
                                 <div class="bg-transparent" id="result">
-                                    <a class="btn btn-primary btn-lg" href="#" data-bs-original-title="" title="">
+                                    <a class="btn btn-primary btn-lg" href="{{ route('profile.edit') }}" data-bs-original-title="" title="">
                                         <span class="fa fa-edit"></span> Edit Profile
                                     </a>
                                 </div>

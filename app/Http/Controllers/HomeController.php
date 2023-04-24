@@ -41,6 +41,13 @@ class HomeController extends Controller
         return view('admin.pages.profile',compact('user'))->with('title','Profile');
     }
 
+    public function edit_profile()
+    {
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        return view('admin.pages.edit-profile',compact('user'))->with('title','Edit Profile');
+    }
+
     public function logout()
     {
         Auth::logout();

@@ -23,7 +23,8 @@
 {{-- <script src="{{ asset('admin/assets/js/theme-customizer/customizer.js') }}"></script> --}}
 
 
-
+<script src="{{ asset('admin/assets/js/tooltip-init.js') }}"></script>
+{{-- <script src="{{ asset('admin/assets/js/popover-custom.js') }}"></script> --}}
 
 
 <!-- Plugins JS start-->

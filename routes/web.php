@@ -29,6 +29,7 @@ Route::group(['middleware' => 'auth'], function()
 {
     Route::get('dashboard/profile', [HomeController::class, 'profile'])->name('dashboard.profile');
     Route::get('logout', [HomeController::class, 'logout'])->name('user.logout');
+    Route::get('edit-profile', [HomeController::class, 'edit_profile'])->name('profile.edit');
 });
 
 Auth::routes();

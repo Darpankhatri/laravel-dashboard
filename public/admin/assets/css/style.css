@@ -10607,6 +10607,9 @@ th {
 .info span {
   font-size: calc(13px + 1 * (100vw - 320px) / 1600);
 }
+.ttl-info h6 i{
+  margin-right: 5px;
+}
 
 .tour-email {
   display: flex;
@@ -24838,7 +24841,7 @@ html {
     3.41 User-profile CSS start
 ==========================**/
 .user-profile .ttl-info h6 {
-  font-size: 12px;
+  font-size: 15px;
   color: #59667a;
 }
 .user-profile .border-right {
@@ -24851,7 +24854,7 @@ html {
   background: url(../images/other-images/bg-profile.png);
   background-size: cover;
   background-position: 10%;
-  height: 470px;
+  height: 250px;
 }
 .user-profile .hovercard .user-image {
   position: relative;
