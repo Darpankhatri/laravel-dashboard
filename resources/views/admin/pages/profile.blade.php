@@ -30,8 +30,10 @@
                         <div class="card hovercard text-center">
                             <div class="cardheader"></div>
                             <div class="user-image">
-                                <div class="avatar"><img alt="" src="{{ asset($user->image) }}"></div>
-                                <div class="icon-wrapper"><i class="icofont icofont-pencil-alt-5"></i></div>
+                                <div class="avatar"><img alt="" id="imageprofile" src="{{ asset($user->image) }}"></div>
+                                <div class="icon-wrapper"><i for="imageUpload" title="Update Profile" class="icofont icofont-pencil-alt-5" onclick="imgupload();"></i></div>
+                                <input type="file" name="image" id="imageUpload" style="display: none;"
+                                onchange="previewFile(this);" accept="image/*" />
                             </div>
                             <div class="info">
                                 <div class="row">
@@ -103,4 +105,23 @@
         </div>
         <!-- Container-fluid Ends-->
     </div>
+@endsection
+
+@section('script')
+    <script>
+        function previewFile(input) {
+            var file = $("input[type=file]").get(0).files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function() {
+                    $("#imageprofile").attr("src", reader.result);
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function imgupload(){
+            document.getElementById("imageUpload").click();
+        }
+    </script>
 @endsection
